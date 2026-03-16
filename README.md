@@ -1,13 +1,16 @@
-Bulk Villager Trading. Automatically Re-Stocks the trade UI after shift-click.
+# Bulk Villager Trading
 
-Manually clicking the trade button over and over again can be exhausting, tiring, and downright frustrating and slow.
+Fabric mod for Minecraft 1.21.11. Automatically re-stocks the villager trade UI after you shift-click a trade.
 
- 
+## How to use
 
-Using this mod [**___can reduce onset of carpal tunnel syndrome___**](https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome), and is a significantly better change compared to the vanilla behaviour when trying to bulk trade.
+1. Install Fabric Loader and Fabric API for 1.21.11.
+2. Put the mod jar in your `mods` folder.
+3. Open a villager trading screen, pick a trade, then shift-click the result to buy. The same trade is selected again so you can shift-click repeatedly to buy in bulk.
 
-This mod *_simply re-stocks the Trade UI_* when you shift-click complete a trade, so you can trade more items. This mod is considered ___**light automation**___, similar to macros, and is only needed on the client. It is compatible with most servers, so please ask administrators or moderators where you play.
+## Building
 
- 
+- Java 21
+- `./gradlew build` (omit the `org.gradle.toolchains.foojay-resolver-convention` plugin from `settings.gradle` if you hit a Gson/reflection error on Java 21)
 
-This mod is currently only for forge, as I have been able to find similar mods for the fabric modloader.
+Output: `build/libs/bulktrade-1.0.0.jar`

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "bulktrade",
+  "version": "${version}",
+  "name": "Bulk Villager Trading",
+  "description": "Automatically Re-Stocks the trade UI after shift-click.",
+  "authors": ["bradcarnage"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["computer.brads.bulktrade.BulkTrade"]
+  },
+  "mixins": [
+    "mixins.bulktrade.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
