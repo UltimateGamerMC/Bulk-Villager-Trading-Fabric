@@ -5,7 +5,11 @@
   "name": "Bulk Villager Trading",
   "description": "Automatically Re-Stocks the trade UI after shift-click.",
   "authors": ["bradcarnage"],
-  "contact": {},
+  "contact": {
+    "homepage": "https://modrinth.com/mod/bulk-fabric-trading",
+    "sources": "https://github.com/UltimateGamerMC/Bulk-Villager-Trading-Fabric",
+    "issues": "https://github.com/UltimateGamerMC/Bulk-Villager-Trading-Fabric/issues"
+  },
   "license": "MIT",
   "environment": "client",
   "entrypoints": {
@@ -15,9 +19,9 @@
     "mixins.bulktrade.json"
   ],
   "depends": {
-    "fabricloader": ">=0.18.0",
-    "minecraft": "~1.21.11",
-    "java": ">=21",
+    "fabricloader": ">=0.19.0",
+    "minecraft": "~26.3",
+    "java": ">=25",
     "fabric-api": "*"
   }
 }

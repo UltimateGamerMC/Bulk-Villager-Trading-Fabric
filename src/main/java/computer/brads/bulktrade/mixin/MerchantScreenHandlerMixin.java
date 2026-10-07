@@ -1,8 +1,8 @@
 package computer.brads.bulktrade.mixin;
 
 import computer.brads.bulktrade.BulkTrade;
-import net.minecraft.screen.MerchantScreenHandler;
-import net.minecraft.village.MerchantInventory;
+import net.minecraft.world.inventory.MerchantContainer;
+import net.minecraft.world.inventory.MerchantMenu;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,16 +11,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.concurrent.TimeUnit;
 
-@Mixin(MerchantScreenHandler.class)
+@Mixin(MerchantMenu.class)
 public abstract class MerchantScreenHandlerMixin {
     @Shadow
-    private MerchantInventory merchantInventory;
+    private MerchantContainer tradeContainer;
 
-    @Inject(method = "playYesSound", at = @At("TAIL"))
+    @Inject(method = "playTradeSound", at = @At("TAIL"))
     private void onPlayYesSound(CallbackInfo ci) {
         try {
             BulkTrade.isVillagerScreenOpen = true;
-            BulkTrade.selectedVillagerSlot = ((MerchantInventoryAccessor) merchantInventory).getOfferIndex();
+            BulkTrade.selectedVillagerSlot = ((MerchantInventoryAccessor) tradeContainer).getOfferIndex();
             if (BulkTrade.triggerRestock || !invokeCanRestock()) return;
             BulkTrade.triggerRestock = true;
             int slot = BulkTrade.selectedVillagerSlot;
@@ -35,7 +35,7 @@ public abstract class MerchantScreenHandlerMixin {
         }
     }
 
-    @Inject(method = "onClosed", at = @At("TAIL"))
+    @Inject(method = "removed", at = @At("TAIL"))
     private void onClosed(CallbackInfo ci) {
         try {
             BulkTrade.isVillagerScreenOpen = false;

@@ -2,7 +2,7 @@
   "required": false,
   "package": "computer.brads.bulktrade.mixin",
   "plugin": "computer.brads.bulktrade.mixin.BulktradeMixinPlugin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "client": [
     "MerchantInventoryAccessor",
     "MerchantScreenHandlerMixin"
