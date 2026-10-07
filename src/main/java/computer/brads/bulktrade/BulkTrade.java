@@ -17,7 +17,12 @@ public class BulkTrade implements ClientModInitializer {
 
     public static ScheduledExecutorService getScheduler() {
         if (scheduler == null) {
-            scheduler = Executors.newSingleThreadScheduledExecutor();
+            // Daemon thread so it never keeps the game process alive after quitting.
+            scheduler = Executors.newSingleThreadScheduledExecutor(runnable -> {
+                Thread thread = new Thread(runnable, "BulkTrade restock");
+                thread.setDaemon(true);
+                return thread;
+            });
         }
         return scheduler;
     }
